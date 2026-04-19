@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #525252;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#chat-container {
+  width: 400px;
+  height: 550px;
+  background: rgb(187, 187, 187);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+#chat-header {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid rgb(0, 112, 28);
+}
+A .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  width: 35px;
+  height: 35px;
+  background: rgb(0, 112, 28);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#clock {
+  font-family: monospace;
+  font-size: 20px;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Janela */
+
+#chat-window {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #c9c9c9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg {
+  padding: 10px 14px;
+  border-radius: 15px;
+  font-size: 14px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.user {
+  background: #3498db;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.bot {
+  background: #ecf0f1;
+  color: #2c3e50;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+  border: 1px solid #bdc3c7;
+}
+
+
+
+#user-input-container { 
+  display: flex;
+  padding: 15px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+#user-input-field {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+#send-btn {
+  background: rgb(0, 112, 28);
+  color: white;
+  border: none;
+  padding: 0 15px;
+  margin-left: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#send-btn:hover {
+  background: #219150;
+}
