@@ -23,12 +23,16 @@ SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT")
 
 client = Groq(api_key=API_KEY)
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+root_dir = os.path.join(current_dir, "..")
 class ChatRequest(BaseModel):
     message: str
 
 @app.get("/")
 async def root():
-    return FileResponse('../index.html')
+    
+    index_path = os.path.join(root_dir, "index.html")
+    return FileResponse(index_path)
 
 
 @app.post("/chat")
@@ -50,4 +54,4 @@ async def chat_endpoint(request: ChatRequest):
           print(f"ERRO CRÍTICO NA OPERAÇÃO: {e}")
           raise HTTPException(status_code=500, detail=str(e))
       
-app.mount("/", StaticFiles(directory="..", html=True), name="static")
+app.mount("/", StaticFiles(directory=root_dir, html=True), name="static")
