@@ -4,6 +4,8 @@ from groq import Groq
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from dotenv import load_dotenv
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 load_dotenv()
 
 app = FastAPI()
@@ -24,6 +26,11 @@ client = Groq(api_key=API_KEY)
 class ChatRequest(BaseModel):
     message: str
 
+@app.get("/")
+async def root():
+    return FileResponse('../index.html')
+
+
 @app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
     try:
@@ -42,3 +49,5 @@ async def chat_endpoint(request: ChatRequest):
     except Exception as e:
           print(f"ERRO CRÍTICO NA OPERAÇÃO: {e}")
           raise HTTPException(status_code=500, detail=str(e))
+      
+app.mount("/", StaticFiles(directory="..", html=True), name="static")
