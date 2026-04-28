@@ -3,6 +3,7 @@ const sendBtn = document.getElementById('send-btn');
 const inputField = document.getElementById('user-input-field');
 
 API_URL = "https://chatbot-militar.vercel.app/"
+
 function addMessage(text, type) {
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('msg', type);
