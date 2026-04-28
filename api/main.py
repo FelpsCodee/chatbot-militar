@@ -25,6 +25,7 @@ client = Groq(api_key=API_KEY)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.join(current_dir, "..")
+
 class ChatRequest(BaseModel):
     message: str
 
